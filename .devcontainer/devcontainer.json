@@ -1,0 +1,26 @@
+{
+	"name": "weather-app-db",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"containerEnv": {
+		"MYSQL_ROOT_PASSWORD": "wdbu@root123",
+		"MYSQL_DATABASE": "weather-app-db",
+		"MYSQL_USER": "weatherdbuser",
+		"MYSQL_PASSWORD": "wdbu@_123"
+	},
+	"overrideCommand": false,
+	"appPort": ["0.0.0.0:3306:3306"], // 0.0.0.0 is all network interfaces
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"cweijan.vscode-mysql-client2"
+			],
+			"settings": {}
+		}
+	},
+	
+	"mounts": [
+		"source=weather-db,target=/var/lib/mysql,type=volume"
+	]
+}
